@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def index(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
+        return HttpResponseRedirect(reverse("users:login"))
     return render(request, "users/user.html", {
         "user": request.user
     })
@@ -20,7 +20,7 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+            return HttpResponseRedirect(reverse("users:index"))
         else:
             return render(request, "users/login.html", {
                 "message": "Invalid credentials"

@@ -11,7 +11,7 @@
     <li>Last Name: {{request.user.last_name}}</li>
 </ul>
 
-<a href="{% url 'logout' %}">Logout</a>
+<a href="{% url 'users:logout' %}">Logout</a>
 
 {%if request.user.is_authenticated %}
     <p>You are logged in.</p>
